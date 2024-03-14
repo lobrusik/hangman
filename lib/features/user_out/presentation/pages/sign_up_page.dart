@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hangman/features/user_out/firebase_auth_implementation/firebase_auth_services.dart';
 import 'package:hangman/features/user_out/presentation/pages/hangman_page.dart';
-//import 'package:hangman/features/user_out/presentation/pages/home_page.dart';
 import 'package:hangman/features/user_out/presentation/pages/login_page.dart';
 import 'package:hangman/features/user_out/presentation/widgets/form_container_widget.dart';
 import 'package:hangman/global/toast.dart';
 
+//A page for user sign-up.
 class SignUpPage extends StatefulWidget{
   const SignUpPage({super.key});
   @override
@@ -100,6 +99,7 @@ class _SignUpPageState extends State<SignUpPage>{
     );
   }
 
+  //Signs up the user with provided email and password.
   void _signUp() async {
     setState(() {
       _isSigningUp = true;

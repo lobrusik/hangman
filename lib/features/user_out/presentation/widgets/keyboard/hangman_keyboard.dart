@@ -5,6 +5,7 @@ import 'package:hangman/features/user_out/presentation/widgets/keyboard/hangman_
 import 'package:hangman/models/viev_models/game_view_model.dart';
 import 'package:provider/provider.dart';
 
+//A widget representing the Hangman keyboard
 class HangmanKeyboard extends StatelessWidget {
   static const double spacing = 6;
 
@@ -24,6 +25,7 @@ class HangmanKeyboard extends StatelessWidget {
     );
   }
 
+  //Builds a row of keyboard keys.
   Widget _buildKeyboardRow(List<String> letters, BuildContext context) {
     final itemWidth = _calculateItemWidth(context);
 
@@ -43,6 +45,7 @@ class HangmanKeyboard extends StatelessWidget {
     );
   }
 
+  //Builds a keyboard key.
   Widget _buildKeyboardKey(String letter, double itemWidth, bool isEnabled) {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: spacing / 2),
@@ -53,6 +56,7 @@ class HangmanKeyboard extends StatelessWidget {
         ));
   }
 
+  //Calculate the width of a keyboard key based on available screen width and spacing
   double _calculateItemWidth(BuildContext context) {
     final maxLettersInRow = keyboardLetters.first.length;
     final spacingSumWidth = spacing * maxLettersInRow;

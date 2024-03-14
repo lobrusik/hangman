@@ -7,6 +7,8 @@ import 'package:hangman/features/user_out/presentation/widgets/states/game_finis
 import 'package:hangman/features/user_out/presentation/widgets/states/game_started_state.dart';
 import 'package:hangman/models/viev_models/game_view_model.dart';
 import 'package:provider/provider.dart';
+
+//The main page of the Hangman game.
 class HangmanPage extends StatelessWidget {
   const HangmanPage({super.key});
 
@@ -15,6 +17,7 @@ class HangmanPage extends StatelessWidget {
     return Scaffold(body: SafeArea(child: _buildContent(context)));
   }
 
+  //Builds the content of the Hangman page based on the game state.
   Widget _buildContent(BuildContext context) {
     return ListenableProvider<GameViewModel>(
         create: (_) {
@@ -32,6 +35,7 @@ class HangmanPage extends StatelessWidget {
               } else if (gameState == GameState.levelCompleted) {
                 return const GameFinishedState();
               }
+              //Show a loading indicator while waiting for the game state
               return const Center(
                   child: CircularProgressIndicator(
                 color: MyColors.ufoGreen,

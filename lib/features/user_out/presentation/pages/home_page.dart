@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:hangman/features/user_out/presentation/pages/hangman_page.dart';
 import 'package:hangman/global/toast.dart';
 
+//A global key for accessing the navigator state.
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
+//The home page of the Hangman app.
 class HomePage extends StatelessWidget{
   const HomePage ({super.key});
 
@@ -21,6 +23,7 @@ class HomePage extends StatelessWidget{
           SizedBox(height: 30,),
           GestureDetector(
             onTap: () {
+              //Signs out the current user and navigates to the Hangman page
               FirebaseAuth.instance.signOut();
               MaterialApp(navigatorKey: navigatorKey, home: const HangmanPage());
               showToast(message: "Powodzenia!");

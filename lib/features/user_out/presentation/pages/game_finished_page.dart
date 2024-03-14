@@ -5,6 +5,7 @@ import 'package:hangman/features/user_out/presentation/widgets/game_result_view.
 import 'package:hangman/models/viev_models/game_finished_view_model.dart';
 import 'package:provider/provider.dart';
 
+//A page displayed when the game is finished.
 class GameFinishedPage extends StatelessWidget {
   const GameFinishedPage({super.key});
 
@@ -13,17 +14,20 @@ class GameFinishedPage extends StatelessWidget {
     return Scaffold(body: SafeArea(child: _buildContent()));
   }
 
+  //Builds the content of the game finished page.
   Widget _buildContent() {
     return ListenableProvider<GameFinishedViewModel>(
         create: (_) => sl<GameFinishedViewModel>(),
         builder: (context, _) => GameResultView(
-              screenTitle: "Gratulacje otrzymujesz 1 punkt!",
-              actionTitle: "Ja chcę jeszcze raz!",
-              backgroundColor: MyColors.ufoGreen,
-              action: () {
-                Provider.of<GameFinishedViewModel>(context, listen: false)
-                    .startNewGame();
-              },
-            ));
+          screenTitle: "Gratulacje otrzymujesz 1 punkt!",
+          actionTitle: "Ja chcę jeszcze raz!",
+          backgroundColor: MyColors.ufoGreen,
+          action: () {
+            //Starts a new game when the action button is pressed
+            Provider.of<GameFinishedViewModel>(context, listen: false)
+                .startNewGame();
+          },
+        )
+    );
   }
 }

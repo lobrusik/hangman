@@ -5,8 +5,8 @@ import 'package:hangman/features/user_out/presentation/pages/hangman_page.dart';
 import 'package:hangman/features/user_out/presentation/pages/sign_up_page.dart';
 import 'package:hangman/features/user_out/presentation/widgets/form_container_widget.dart';
 import 'package:hangman/global/toast.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+//A page for user login.
 class LoginPage extends StatefulWidget{
   const LoginPage({super.key});
   @override
@@ -92,6 +92,7 @@ class _LoginPageState extends State<LoginPage>{
       )
     );
   }
+  //Signs in the user with provided email and password.
   void _signIn() async {
     setState(() {
       _isSigning = true;

@@ -1,9 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hangman/global/toast.dart';
 
+//A service class for Firebase Authentication operations.
 class FirebaseAuthService {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
+  /// Signs up a user with the provided email and password, 
+  /// returns a [User] object upon successful sign-up, 
+  /// displays appropriate toast messages in case of errors.
   Future<User?> signUpWithEmailAndPassword(String email, String password) async {
     try{
       UserCredential credential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
@@ -17,7 +21,9 @@ class FirebaseAuthService {
     }
     return null;
   }
-
+  //Signs in a user with the provided email and password, 
+  //returns a [User] object upon successful sign-in, 
+  //displays appropriate toast messages in case of errors.
   Future<User?> signInWithEmailAndPassword(String email, String password) async {
     try{
       UserCredential credential = await _auth.signInWithEmailAndPassword(email: email, password: password);

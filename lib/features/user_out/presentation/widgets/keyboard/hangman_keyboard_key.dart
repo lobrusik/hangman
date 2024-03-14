@@ -4,6 +4,7 @@ import 'package:flutter_podstawy_utilities/constants/dimens.dart';
 import 'package:hangman/models/viev_models/game_view_model.dart';
 import 'package:provider/provider.dart';
 
+//A widget representing a key in the Hangman keyboard.
 class HangmanKeyboardKey extends StatelessWidget {
   final String letter;
   final double width;
@@ -15,6 +16,7 @@ class HangmanKeyboardKey extends StatelessWidget {
       required this.isEnabled,
       super.key});
 
+  //Builds the content of the keyboard key.
   @override
   Widget build(BuildContext context) {
     return SizedBox(
