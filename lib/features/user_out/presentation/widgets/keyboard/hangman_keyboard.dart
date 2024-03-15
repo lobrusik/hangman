@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_podstawy_utilities/constants/dimens.dart';
 import 'package:flutter_podstawy_utilities/wisielec/wisielec_constans.dart';
 import 'package:hangman/features/user_out/presentation/widgets/keyboard/hangman_keyboard_key.dart';
-import 'package:hangman/models/viev_models/game_view_model.dart';
+import 'package:hangman/models/view_models/game_view_model.dart';
 import 'package:provider/provider.dart';
 
 //A widget representing the Hangman keyboard

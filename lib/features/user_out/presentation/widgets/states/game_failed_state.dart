@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hangman/features/user_out/presentation/widgets/game_result_view.dart';
-import 'package:hangman/models/viev_models/game_view_model.dart';
+import 'package:hangman/models/view_models/game_view_model.dart';
 import 'package:provider/provider.dart';
 
+//A class representing the state of the game when the user fails.
 class GameFailedState extends StatelessWidget {
   const GameFailedState({
     super.key,

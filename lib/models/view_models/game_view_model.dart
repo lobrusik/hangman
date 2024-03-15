@@ -3,12 +3,12 @@ import 'package:hangman/enums/game_state.dart';
 import 'package:hangman/features/user_out/presentation/pages/game_finished_page.dart';
 import 'package:hangman/global/toast.dart';
 import 'package:hangman/models/letter.dart';
-import 'package:hangman/models/viev_models/view_model_base.dart';
+import 'package:hangman/models/view_models/view_model_base.dart';
 import 'package:hangman/models/word_to_guess.dart';
 import 'package:hangman/repository/words_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-
+//The view model for the Hangman game.
 class GameViewModel extends ViewModelBase {
   static const int maxAttempts = 10;
   static const String toGuessSign = "_";
@@ -20,6 +20,7 @@ class GameViewModel extends ViewModelBase {
   int _playerLevel = 1;
 
   final WordsRepository _wordsRepository;
+  //Firebase Firestore is used to update and retrieve player levels asynchronously.
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 

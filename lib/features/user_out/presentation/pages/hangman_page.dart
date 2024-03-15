@@ -5,7 +5,7 @@ import 'package:hangman/enums/game_state.dart';
 import 'package:hangman/features/user_out/presentation/widgets/states/game_failed_state.dart';
 import 'package:hangman/features/user_out/presentation/widgets/states/game_finished_state.dart';
 import 'package:hangman/features/user_out/presentation/widgets/states/game_started_state.dart';
-import 'package:hangman/models/viev_models/game_view_model.dart';
+import 'package:hangman/models/view_models/game_view_model.dart';
 import 'package:provider/provider.dart';
 
 //The main page of the Hangman game.

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_podstawy_utilities/colors/my_colors.dart';
 import 'package:flutter_podstawy_utilities/constants/dimens.dart';
-import 'package:hangman/models/viev_models/game_view_model.dart';
+import 'package:hangman/models/view_models/game_view_model.dart';
 import 'package:provider/provider.dart';
 
 //A widget representing a key in the Hangman keyboard.

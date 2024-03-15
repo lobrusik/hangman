@@ -20,7 +20,6 @@ class WordToGuessView extends StatelessWidget {
         children: [
           const HangmanTitle(),
           _buildWord(),
-          // Game goal widget
         ],
       ),
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_podstawy_utilities/colors/my_colors.dart';
 import 'package:hangman/di/di.dart';
 import 'package:hangman/features/user_out/presentation/widgets/game_result_view.dart';
-import 'package:hangman/models/viev_models/game_finished_view_model.dart';
+import 'package:hangman/models/view_models/game_finished_view_model.dart';
 import 'package:provider/provider.dart';
 
 //A page displayed when the game is finished.

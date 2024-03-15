@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:hangman/di/di.dart';
 import 'package:hangman/features/user_out/presentation/pages/login_page.dart';
 
+//It's a global key of type NavigatorState used to control the app's navigation.
 final GlobalKey<NavigatorState> navigationKey = GlobalKey();
+
+//It's an asynchronous function that initializes Firebase, sets up the service locator, and ensures Flutter is initialized for web.
 Future main() async{
   setupServiceLocatorForHangmanApp();
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,10 +26,10 @@ Future main() async{
   runApp(const MyApp());
 }
 
+//This is a stateless widget representing the root of the Hangman application.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,6 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 5, 65, 21)),
         useMaterial3: true,
       ),
+      //The home property is set to the LoginPage, indicating that the login page is the initial screen of the application.
       home: const LoginPage(),
     );
   }

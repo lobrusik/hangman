@@ -4,12 +4,12 @@ class FormContainerWidget extends StatefulWidget{
 
   final TextEditingController? controller;
   final Key? fieldKey;
-  final bool? isPasswordField;
-  final String? hintText;
+  final bool? isPasswordField; //Whether the field is for entering a password.
+  final String? hintText; //Hint text to display inside the text field when it's empty.
   final String? labelText;
-  final String? helperText;
-  final FormFieldSetter<String>? onSaved;
-  final FormFieldValidator<String>? validator;
+  final String? helperText; //Helper text to provide additional guidance for the field.
+  final FormFieldSetter<String>? onSaved;  //Callback function to call when the form is saved.
+  final FormFieldValidator<String>? validator; //Function to validate the input value.
   final ValueChanged<String>? onFieldSubmitted;
   final TextInputType? inputType;
 
@@ -31,7 +31,7 @@ class FormContainerWidget extends StatefulWidget{
 }
 
 class _FormContainerWidgetState extends State<FormContainerWidget>{
-  bool _obscureText = true;
+  bool _obscureText = true; //Boolean variable to toggle the visibility of the password text.
 
   @override
   Widget build(BuildContext context){
