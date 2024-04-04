@@ -45,18 +45,22 @@ The project involves playing the popular game of “Hangman”. It was written b
     
 ### features:
 
-   ####APP:
-    - splash_screen.dart
-            
+#### app:
+- splash_screen.dart
+
    This Dart code defines a **`SplashScreen`** widget, which displays a splash screen with a message and navigates to another screen after a delay of 3 seconds. It takes an optional **`child`** parameter, which represents the widget to navigate to after the splash screen. The splash screen displays a text message in the center of the screen. After the delay, it navigates to the specified child widget and removes all routes below it from the navigation stack
-    - USER_OUT
-        - firebase_auth_implementation
-            - firebase_auth_services.dart
-                This Dart code defines a service class called **`FirebaseAuthService`**, which provides methods for signing up and signing in users using Firebase Authentication. It utilizes the FirebaseAuth package.
-        - PRESENTATION
-            - PAGES
-                - game_finished_page.dart
-                    This Dart code defines a **`GameFinishedPage`** widget, which is displayed when the game is finished. It includes a **`GameResultView`** widget that presents the result of the game and provides an action button to start a new game.
+
+#### user_out
+##### firebase_auth_implementation
+- firebase_auth_services.dart
+
+   This Dart code defines a service class called **`FirebaseAuthService`**, which provides methods for signing up and signing in users using Firebase Authentication. It utilizes the FirebaseAuth package.
+
+#### presentation
+##### pages
+- game_finished_page.dart
+
+   This Dart code defines a **`GameFinishedPage`** widget, which is displayed when the game is finished. It includes a **`GameResultView`** widget that presents the result of the game and provides an action button to start a new game.
                     - The **`GameFinishedPage`** widget is a StatelessWidget.
                     - It returns a Scaffold with SafeArea wrapping the content.
                     - The **`_buildContent`** method creates a ListenableProvider for the **`GameFinishedViewModel`**, which is obtained using the service locator (**`sl`**) from the **`di.dart`** file.
