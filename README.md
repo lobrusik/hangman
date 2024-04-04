@@ -26,7 +26,6 @@ The project involves playing the popular game of “Hangman”. It was written b
 # File description:
 DATA SOURCE:
 - words_local_source.dart
-- 
    This abstract class **`WordsLocalSource`** defines a contract for classes that provide access to local word sources. It declares a single method **`getWords()`** that must be implemented by subclasses. This method asynchronously retrieves a list of words and returns them wrapped in a Future.
   
 - words_memory_storage.dart
