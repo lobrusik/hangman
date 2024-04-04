@@ -1,19 +1,19 @@
-## Overall:
+# Overall:
 The project involves playing the popular game of “Hangman”. It was written based on the book "Flutter. Podstawy" by Krzysztof Baranowski.To play, you must first log in or create a new account. Then, the program retrieves words for the game from the Firebase database and draws a word for the player who tries to guess the word by letters. If he succeeds before the entire hangman is drawn, he can continue playing. If not - he starts from the beginning. I also plan to add scoring so that you can always return to the game.
 
-## Features:
+# Features:
 - Smooth, yet simple and aesthetic user interface on various platforms (Web, Android, iOS)
 - Standard login via username and password (soon also in other ways)
 - Words are fetched in real time from the Firebase database
 - Simple game logic with difficult Polish words
 - Clear messages in the form of pop-up windows
 
-## Requirements
+# Requirements
 - Flutter: To install Flutter, follow the instructions on the official Flutter website.
 - Android Studio/IntelliJ IDEA or Visual Studio Code with Flutter and Dart plugins installed.
 - An Android/iOS emulator or a real device for testing.
 
-## Installation
+# Installation
 1. Clone the repository:
     git clone https://github.com/lobrusik/hangman.git
 2. Navigate to the project directory:
@@ -23,12 +23,12 @@ The project involves playing the popular game of “Hangman”. It was written b
 4. Run the app:
     flutter run
 
-## File description:
+# File description:
 DATA SOURCE:
-    - words_local_source.dart
-        This abstract class **`WordsLocalSource`** defines a contract for classes that provide access to local word sources. It declares a single method **`getWords()`** that must be implemented by subclasses. This method asynchronously retrieves a list of words and returns them wrapped in a Future.
-    - words_memory_storage.dart
-        The code defines a class **`WordsMemoryStorage`** that implements the **`WordsLocalSource`** interface. It retrieves words from Firestore, shuffles them, and returns them as a list asynchronously. In case of any errors during the retrieval process, it logs the error and returns an empty list.
+- words_local_source.dart
+⋅⋅⋅This abstract class **`WordsLocalSource`** defines a contract for classes that provide access to local word sources. It declares a single method **`getWords()`** that must be implemented by subclasses. This method asynchronously retrieves a list of words and returns them wrapped in a Future.⋅⋅⋅
+- words_memory_storage.dart
+⋅⋅⋅The code defines a class **`WordsMemoryStorage`** that implements the **`WordsLocalSource`** interface. It retrieves words from Firestore, shuffles them, and returns them as a list asynchronously. In case of any errors during the retrieval process, it logs the error and returns an empty list.
         
 DI:
     - di.dart
