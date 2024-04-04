@@ -51,69 +51,124 @@ The project involves playing the popular game of “Hangman”. It was written b
    This Dart code defines a **`SplashScreen`** widget, which displays a splash screen with a message and navigates to another screen after a delay of 3 seconds. It takes an optional **`child`** parameter, which represents the widget to navigate to after the splash screen. The splash screen displays a text message in the center of the screen. After the delay, it navigates to the specified child widget and removes all routes below it from the navigation stack
 
 #### user_out
+
 ##### firebase_auth_implementation
 - firebase_auth_services.dart
 
    This Dart code defines a service class called **`FirebaseAuthService`**, which provides methods for signing up and signing in users using Firebase Authentication. It utilizes the FirebaseAuth package.
 
 #### presentation
+
 ##### pages
 - game_finished_page.dart
 
    This Dart code defines a **`GameFinishedPage`** widget, which is displayed when the game is finished. It includes a **`GameResultView`** widget that presents the result of the game and provides an action button to start a new game.
-                    - The **`GameFinishedPage`** widget is a StatelessWidget.
-                    - It returns a Scaffold with SafeArea wrapping the content.
-                    - The **`_buildContent`** method creates a ListenableProvider for the **`GameFinishedViewModel`**, which is obtained using the service locator (**`sl`**) from the **`di.dart`** file.
-                    - It then uses a **`GameResultView`** widget to display the game result with a congratulatory message, an action button to start a new game, and a background color defined by the **`MyColors.ufoGreen`** constant.
-                    - When the action button is pressed, it calls the **`startNewGame`** method of the **`GameFinishedViewModel`** using the Provider package.
-                - hangman_page.dart
-                    This Dart code defines a **`HangmanPage`** widget, which represents the main page of the Hangman game. It utilizes various state widgets (**`GameStartedState`**, **`GameFailedState`**, and **`GameFinishedState`**) to display different states of the game. The page uses the Provider package for state management.
-                    - The **`HangmanPage`** widget is a StatelessWidget.
-                    - It returns a Scaffold with SafeArea wrapping the content.
-                    - The **`_buildContent`** method creates a ListenableProvider for the **`GameViewModel`** and uses a Selector to rebuild the UI based on changes to the game state.
-                    - Depending on the current game state (**`GameState`**), it displays different state widgets accordingly: **`GameStartedState`** for an in-progress game, **`GameFailedState`** for a failed game, and **`GameFinishedState`** for a completed level.
-                    - While waiting for the game state, it shows a CircularProgressIndicator with a color defined by the **`MyColors.ufoGreen`** constant.
-                - home_page.dart
-                    This Dart code defines a **`HomePage`** widget, which serves as the home page of the Hangman app. It includes a welcome message and a button to start the game.
-                    - The **`HomePage`** widget is a StatelessWidget.
-                    - It returns a Scaffold with an AppBar and a Column containing the content.
-                    - The content includes a welcome message and a GestureDetector wrapped around a Container, serving as a button.
-                    - When the button is tapped, it signs out the current user using FirebaseAuth, navigates to the Hangman page, and displays a toast message using the **`showToast`** function from the **`global/toast.dart`** file.
-                    - A GlobalKey named **`navigatorKey`** is defined globally to access the navigator state, which is used for navigation purposes.
-                - login_page.dart
-                    This Dart code defines a **`LoginPage`** widget, which allows users to log in using their email and password. It includes text fields for email and password input, a login button, and a link to navigate to the sign-up page
-                    - The **`LoginPage`** widget is a StatefulWidget.
-                    - It returns a Scaffold with an AppBar and a form for login inputs.
-                    - The **`_signIn`** method attempts to sign in the user using the provided email and password. If successful, it navigates to the Hangman page. Otherwise, it displays a toast message indicating login failure.
-                    - TextEditingController instances are used to control the input fields for email and password.
-                    - The login button's tap gesture triggers the sign-in process. While the sign-in process is ongoing, a CircularProgressIndicator is displayed on the button.
-                - sign_up_page.dart
-                    This Dart code defines a **`SignUpPage`** widget, which allows users to sign up by providing a username, email, and password. It includes text fields for input, a sign-up button, and a link to navigate to the login page.
-                    - The **`SignUpPage`** widget is a StatefulWidget.
-                    - It returns a Scaffold with an AppBar and a form for sign-up inputs.
-                    - The **`_signUp`** method attempts to sign up the user using the provided email and password. If successful, it navigates to the Hangman page. Otherwise, it displays a toast message indicating sign-up failure.
-                    - TextEditingController instances are used to control the input fields for username, email, and password.
-                    - The sign-up button's tap gesture triggers the sign-up process. While the sign-up process is ongoing, a CircularProgressIndicator is displayed on the button.
-                    - A row containing text prompts users to log in if they already have an account, along with a GestureDetector that navigates to the login page when tapped.
-            - WIDGET
-                - KEYBOARD
-                    - hangman_keyboard_key.dart
-                        This Dart code defines a **`HangmanKeyboardKey`** widget, which represents a key in the Hangman keyboard. Each key displays a letter and can be tapped to interact with the game.
-                        - The **`HangmanKeyboardKey`** widget is a StatelessWidget.
-                        - It takes three required parameters: **`letter`** (the letter displayed on the key), **`width`** (the width of the key), and **`isEnabled`** (a boolean indicating whether the key is enabled or disabled).
-                        - The build method constructs the widget's UI, which consists of a GestureDetector wrapped around the content of the key.
-                        - When the key is tapped, it triggers the **`letterClicked`** method of the **`GameViewModel`** using the Provider package, passing the tapped letter as an argument.
-                        - The **`_buildKeyContent`** method constructs the visual representation of the key, including its background color, border radius, padding, and text styling.
-                        - The text displayed on the key is the uppercase of the provided letter, styled with a specified font size, weight, and color based on whether the key is enabled or disabled.
-                    - hangman_keyboard.dart
-                        - **`HangmanKeyboard`** is a StatelessWidget representing the Hangman keyboard.
-                        - The keyboard is constructed by mapping through **`keyboardLetters`**, which contains the letters of the keyboard rows.
-                        - Each row of keys is built using **`_buildKeyboardRow`**, where **`_calculateItemWidth`** is called to determine the width of each key.
-                        - Each key is built using **`_buildKeyboardKey`**, which creates a **`HangmanKeyboardKey`** widget and passes the letter and width.
-                        - The **`Selector`** widget listens to changes in the attempted letters and rebuilds the keyboard accordingly, enabling or disabling keys based on the attempted letters.
-                        - **`spacing`** is used for horizontal spacing between keys.
-                        - The **`const`** keyword is used to declare class constants where appropriate.
-                - STATES
+  
+   - The **`GameFinishedPage`** widget is a StatelessWidget.
+ 
+   - It returns a Scaffold with SafeArea wrapping the content.
+     
+   - The **`_buildContent`** method creates a ListenableProvider for the **`GameFinishedViewModel`**, which is obtained using the service locator (**`sl`**) from the **`di.dart`** file.
+     
+   - It then uses a **`GameResultView`** widget to display the game result with a congratulatory message, an action button to start a new game, and a background color defined by the **`MyColors.ufoGreen`** constant.
+     
+   - When the action button is pressed, it calls the **`startNewGame`** method of the **`GameFinishedViewModel`** using the Provider package.
+     
+
+- hangman_page.dart
+  
+     This Dart code defines a **`HangmanPage`** widget, which represents the main page of the Hangman game. It utilizes various state widgets (**`GameStartedState`**, **`GameFailedState`**, and **`GameFinishedState`**) to display different states of the game. The page uses the Provider package for state management.
+  
+   - The **`HangmanPage`** widget is a StatelessWidget.
+     
+   - It returns a Scaffold with SafeArea wrapping the content.
+
+   - The **`_buildContent`** method creates a ListenableProvider for the **`GameViewModel`** and uses a Selector to rebuild the UI based on changes to the game state.
+
+   - Depending on the current game state (**`GameState`**), it displays different state widgets accordingly: **`GameStartedState`** for an in-progress game, **`GameFailedState`** for a failed game, and **`GameFinishedState`** for a completed level.
+
+   - While waiting for the game state, it shows a CircularProgressIndicator with a color defined by the **`MyColors.ufoGreen`** constant.
+
+- home_page.dart
+
+   This Dart code defines a **`HomePage`** widget, which serves as the home page of the Hangman app. It includes a welcome message and a button to start the game.
+
+   - The **`HomePage`** widget is a StatelessWidget.
+     
+   - It returns a Scaffold with an AppBar and a Column containing the content.
+
+   - The content includes a welcome message and a GestureDetector wrapped around a Container, serving as a button.
+
+   - When the button is tapped, it signs out the current user using FirebaseAuth, navigates to the Hangman page, and displays a toast message using the **`showToast`** function from the **`global/toast.dart`** file.
+
+   - A GlobalKey named **`navigatorKey`** is defined globally to access the navigator state, which is used for navigation purposes.
+
+- login_page.dart
+  
+   This Dart code defines a **`LoginPage`** widget, which allows users to log in using their email and password. It includes text fields for email and password input, a login button, and a link to navigate to the sign-up page
+
+   - The **`LoginPage`** widget is a StatefulWidget.
+
+   - It returns a Scaffold with an AppBar and a form for login inputs.
+
+   - The **`_signIn`** method attempts to sign in the user using the provided email and password. If successful, it navigates to the Hangman page. Otherwise, it displays a toast message indicating login failure.
+
+   - TextEditingController instances are used to control the input fields for email and password.
+ 
+   - The login button's tap gesture triggers the sign-in process. While the sign-in process is ongoing, a CircularProgressIndicator is displayed on the button.
+
+- sign_up_page.dart
+
+   This Dart code defines a **`SignUpPage`** widget, which allows users to sign up by providing a username, email, and password. It includes text fields for input, a sign-up button, and a link to navigate to the login page.
+
+   - The **`SignUpPage`** widget is a StatefulWidget.
+
+   - It returns a Scaffold with an AppBar and a form for sign-up inputs.
+   
+   - The **`_signUp`** method attempts to sign up the user using the provided email and password. If successful, it navigates to the Hangman page. Otherwise, it displays a toast message indicating sign-up failure.
+
+   - TextEditingController instances are used to control the input fields for username, email, and password.
+
+   - The sign-up button's tap gesture triggers the sign-up process. While the sign-up process is ongoing, a CircularProgressIndicator is displayed on the button.
+   
+   - A row containing text prompts users to log in if they already have an account, along with a GestureDetector that navigates to the login page when tapped.
+    
+##### widgets
+
+###### keyboard
+
+- hangman_keyboard_key.dart
+
+   This Dart code defines a **`HangmanKeyboardKey`** widget, which represents a key in the Hangman keyboard. Each key displays a letter and can be tapped to interact with the game.
+     
+   - The **`HangmanKeyboardKey`** widget is a StatelessWidget.
+
+   - It takes three required parameters: **`letter`** (the letter displayed on the key), **`width`** (the width of the key), and **`isEnabled`** (a boolean indicating whether the key is enabled or disabled).
+
+   - The build method constructs the widget's UI, which consists of a GestureDetector wrapped around the content of the key.
+
+   - When the key is tapped, it triggers the **`letterClicked`** method of the **`GameViewModel`** using the Provider package, passing the tapped letter as an argument.
+
+   - The **`_buildKeyContent`** method constructs the visual representation of the key, including its background color, border radius, padding, and text styling.
+     
+   - The text displayed on the key is the uppercase of the provided letter, styled with a specified font size, weight, and color based on whether the key is enabled or disabled.
+     
+- hangman_keyboard.dart
+
+   - **`HangmanKeyboard`** is a StatelessWidget representing the Hangman keyboard.
+   
+   - The keyboard is constructed by mapping through **`keyboardLetters`**, which contains the letters of the keyboard rows.
+   
+   - Each row of keys is built using **`_buildKeyboardRow`**, where **`_calculateItemWidth`** is called to determine the width of each key.
+   
+   - Each key is built using **`_buildKeyboardKey`**, which creates a **`HangmanKeyboardKey`** widget and passes the letter and width.
+   
+   - The **`Selector`** widget listens to changes in the attempted letters and rebuilds the keyboard accordingly, enabling or disabling keys based on the attempted letters.
+   
+   - **`spacing`** is used for horizontal spacing between keys.
+   
+   - The **`const`** keyword is used to declare class constants where appropriate.
+###### states
                     - game_failed_state.dart
                         This Dart file represents a Flutter widget responsible for displaying the state of the game when the player fails. It imports necessary packages and widgets, including the game result view and the data models required to handle the game view. The **`GameFailedState`** class is a StatelessWidget, meaning it represents a widget that does not depend on any external data. In its build method, it returns a GameResultView widget, which displays the result of the game along with options for the user to take action. The action button triggers the **`prepareNewGame`** method from the **`GameViewModel`** using the Provider package.
                     - game.finished_state.dart
