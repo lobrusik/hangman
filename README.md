@@ -24,26 +24,31 @@ The project involves playing the popular game of “Hangman”. It was written b
     flutter run
 
 # File description:
-DATA SOURCE:
+### data_source:
 - words_local_source.dart
-   This abstract class **`WordsLocalSource`** defines a contract for classes that provide access to local word sources. It declares a single method **`getWords()`** that must be implemented by subclasses. This method asynchronously retrieves a list of words and returns them wrapped in a Future.
+
+  This abstract class **`WordsLocalSource`** defines a contract for classes that provide access to local word sources. It declares a single method **`getWords()`** that must be implemented by subclasses. This method asynchronously retrieves a list of words and returns them wrapped in a Future.
   
 - words_memory_storage.dart
   
    The code defines a class **`WordsMemoryStorage`** that implements the **`WordsLocalSource`** interface. It retrieves words from Firestore, shuffles them, and returns them as a list asynchronously. In case of any errors during the retrieval process, it logs the error and returns an empty list.
         
-DI:
-    - di.dart
-        This Dart code sets up a service locator (**`GetIt`** instance) for the Hangman app. It registers factories and lazy singletons for various classes used within the app for dependency injection.
+### di:
+- di.dart
+  
+   This Dart code sets up a service locator (**`GetIt`** instance) for the Hangman app. It registers factories and lazy singletons for various classes used within the app for dependency injection.
 
-ENUMS:
-    - game_state.dart
-        This Dart code defines an enumeration called **`GameState`** representing different states that the game can be in. Each state is described with a comment for clarity:
+### enums:
+- game_state.dart
+
+   This Dart code defines an enumeration called **`GameState`** representing different states that the game can be in. Each state is described with a comment for clarity:
     
-FEATURES:
-    - APP:
-        - splash_screen.dart
-            This Dart code defines a **`SplashScreen`** widget, which displays a splash screen with a message and navigates to another screen after a delay of 3 seconds. It takes an optional **`child`** parameter, which represents the widget to navigate to after the splash screen. The splash screen displays a text message in the center of the screen. After the delay, it navigates to the specified child widget and removes all routes below it from the navigation stack
+### features:
+
+   ####APP:
+    - splash_screen.dart
+            
+   This Dart code defines a **`SplashScreen`** widget, which displays a splash screen with a message and navigates to another screen after a delay of 3 seconds. It takes an optional **`child`** parameter, which represents the widget to navigate to after the splash screen. The splash screen displays a text message in the center of the screen. After the delay, it navigates to the specified child widget and removes all routes below it from the navigation stack
     - USER_OUT
         - firebase_auth_implementation
             - firebase_auth_services.dart
